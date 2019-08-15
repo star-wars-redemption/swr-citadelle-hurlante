@@ -1,0 +1,59 @@
+\documentclass{jdrp}
+
+\bibliography{tex/references} 
+
+\newcommand*{\crg}{{\aurebesh\Large \$}} % Symbol for Galactic Credits
+
+\hypersetup{  
+  pdfinfo={  
+    Title={SWR - La Citadelle Hurlante},
+    Subject={Scénario, Citadelle Hurlante},
+    Author={Marthym},
+    Keywords={starwars,savage,worlds,jdr,scenario},  
+    Copyright={Do What The Fuck You Want To Public License}
+  }  
+} 
+
+\begin{document}
+
+	\begin{titlepage}
+
+	\begin{center}
+		\hspace*{\vfill}
+		\noindent\Huge\jedifont{Star Wars Redemption}\\ 
+		\noindent\fontsize{50}{70}\jedifont{\$}
+		\noindent\fontsize{50}{70}\jedifont{\#}\\
+		\noindent\fontsize{50}{60}\jedifont{La Citadelle Hurlante}
+		\hspace*{\vfill}
+	\end{center}
+
+	%\hspace*{\vfill}
+
+	\noindent\makebox[\textwidth]{
+		\includegraphics[width=\paperwidth]{swr-class/_img/cover-bg.png}}
+	% \begin{tikzpicture}[overlay]
+	% 	\node[minimum width=180pt,minimum height=180pt, rotate=0] at (17,20){\includegraphics[width=180pt]{_img/pnjs/duinuogwuin-02.png}};
+	% \end{tikzpicture}}
+    % \begin{tikzpicture}[overlay]
+	% 	\node[minimum width=180pt,minimum height=180pt, rotate=0] at (1,13){\includegraphics[width=180pt]{_img/pnjs/nightsister.png}};
+	% \end{tikzpicture}}
+	\end{titlepage}
+
+	\onecolumn
+	\section{contexte de campagne}
+	
+	Ce scénario est pleinement inspiré du spin-off entre la série \citetitle{starwars-marvel} & \citetitle{starwars-aphra}. Il est initialement prévue pour être joué selon les règles des \citetitle{jdrp-starwars}. Le scénario est écrit pour une petite équipe de héros (3 à 5) déjà formé mais la première scène peu être facilement adapté. Un padawan ou un Jedi est nécessaire, si votre équipe n’en contient pas, il faudra soit adapter le scénario pour l’un de vos joueurs, soit ajouter un PNJ padawan.\\
+
+    Le scénario se passe peu après la destruction de la première Etoile de la mort par le jeune Luke Skywalker. Vos héros se trouvent embarqués par le Doctor Aphra, archéologue un peu frappée à la morale douteuse. Cette dernière a besoin d’une forme de vie organique "intéressante" à présenter à la reine de la Citadelle Hurlante pour accéder à la mémoire d’un ancien Jedi. Aucun padawan ne peu refuser une offre pareille...
+
+	\twocolumn
+
+	\include{tex/scenars/DrH-01.Le-Prince-de-Dac}
+	\include{tex/jokers}
+	\include{tex/bestiaire}
+    \include{tex/armory}
+
+	\onecolumn
+	\nocite{*}
+	\printbibliography
+\end{document}

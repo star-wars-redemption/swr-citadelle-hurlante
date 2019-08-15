@@ -1,0 +1,44 @@
+image: marthym/latex:1.1.2
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+cache: 
+  paths:
+    - build/
+    
+compile:
+  stage: build
+  script:
+    - latexmk -f -r swr-class/latexmkrc || true
+  artifacts:
+    expire_in: 2 minute
+    paths:
+      - "build/citadelle-hurlante.pdf"
+      - "LICENSE"
+
+deploy-SNAPSHOT:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - mv "build/citadelle-hurlante.pdf" "SWR-La Citadelle Hurlante.pdf"
+
+  artifacts:
+    expire_in: 1 week
+    name: "SWR-La Citadelle Hurlante SNAPSHOT"
+    paths:
+      - "SWR-La Citadelle Hurlante.pdf"
+  allow_failure: true
+
+deploy-RELEASE:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - tags
+  script:
+      - mv "build/citadelle-hurlante.pdf" "SWR-La Citadelle Hurlante v$CI_COMMIT_TAG.pdf"
+  artifacts:
+    name: "SWR-La Citadelle Hurlante v$CI_COMMIT_TAG"
+    paths:
+      - "SWR-La Citadelle Hurlante v$CI_COMMIT_TAG.pdf"
